@@ -1,16 +1,10 @@
 package com.skilldistillery.stockoverflow.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -23,36 +17,27 @@ public class User {
 	@Column(name = "id")
 	private int id;
 
-//	@JsonIgnore
 	@OneToMany(mappedBy = "userCreator")
 	private Set <Webinar> webinarsUserIsHosting;
 
-//	@JsonIgnore
 	@ManyToMany(mappedBy="usersAttending")
 	private Set <Webinar> webinarsAttending;
 
-//	@JsonIgnore
 	@OneToMany(mappedBy="user")
 	private Set <Comment> comments;
 
-//	@JsonIgnore
-//	@JsonIgnoreProperties({"user"})
 	@OneToMany(mappedBy="user")
 	private Set <Post> posts;
 
-//	@JsonIgnore
 	@OneToMany(mappedBy="user")
 	private Set <CommentRating> commentRatings;
 
-//	@JsonIgnore
 	@OneToMany(mappedBy="user")
 	private Set <WebinarRating> webinarRatings;
 
-//	@JsonIgnore
 	@OneToMany(mappedBy="user")
 	private Set <UserStockJournal> journalEntries;
 
-//	@JsonIgnore
 	@ManyToMany(mappedBy="users")
 	private Set <Stock> stocks;
 

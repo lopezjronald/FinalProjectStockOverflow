@@ -1,6 +1,5 @@
 package com.skilldistillery.stockoverflow.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -15,7 +14,6 @@ public class WebinarRating {
     @EmbeddedId
     private WebinarRatingId id;
 
-//    @JsonIgnore
     @ManyToOne
     @MapsId(value="webinarId")
     @JoinColumn(name="webinar_id")
