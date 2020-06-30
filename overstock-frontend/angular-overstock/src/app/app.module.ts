@@ -29,6 +29,7 @@ import {PostDetailsComponent} from './components/post-details/post-details.compo
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {CartStatusComponent} from './components/cart-status/cart-status.component';
+import { CartDetailsComponent } from './components/cart-details/cart-details.component';
 
 const routes: Routes = [
   {path: 'posts/:id', component: PostDetailsComponent},
@@ -55,7 +56,8 @@ const routes: Routes = [
     PostUserMenuComponent,
     SearchComponent,
     PostDetailsComponent,
-    CartStatusComponent
+    CartStatusComponent,
+    CartDetailsComponent
   ],
   imports: [
     RouterModule.forRoot(routes),
