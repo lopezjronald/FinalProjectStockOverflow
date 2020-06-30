@@ -2,11 +2,11 @@
 
   <!-- MENU SIDEBAR-->
   <aside class="menu-sidebar d-none d-lg-block">
-      <div class="logo">
-<!--        <a href="#">-->
-<!--          <img src="assets/images/logo.png" alt="luv2shop" class="img-responsive">-->
-<!--        </a>-->
-      </div>
+    <div class="logo">
+      <!--        <a href="#">-->
+      <!--          <img src="assets/images/logo.png" alt="luv2shop" class="img-responsive">-->
+      <!--        </a>-->
+    </div>
 
     <app-post-user-menu></app-post-user-menu>
   </aside>
@@ -19,22 +19,15 @@
         <div class="container-fluid">
           <div class="header-wrap">
             <app-search></app-search>
-
-            <div class="cart-area d-n">
-              <a href="shopping-detail.html">
-                <div class="total">Stock Price: 24.99<span> Contracts: 2</span></div>
-                <i aria-hidden="true"
-                   class="fa fa-shopping-cart"></i>
-              </a>
-            </div>
+            <app-cart-status></app-cart-status>
+            <div class="account-wrap"></div>
           </div>
-          <div class="account-wrap"></div>
         </div>
       </div>
     </header>
     <!-- END HEADER DESKTOP-->
 
-<router-outlet></router-outlet>
+    <router-outlet></router-outlet>
     <!--    Main Content   -->
 
   </div>

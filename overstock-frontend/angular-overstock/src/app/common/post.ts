@@ -4,4 +4,5 @@ export class Post {
   description: string;
   createdAt: Date;
   enabled: boolean;
+  unitPrice = 1.99;
 }

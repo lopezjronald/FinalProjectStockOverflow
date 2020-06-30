@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {PostService} from 'src/app/services/post.service';
 import {Post} from 'src/app/common/post';
 import {ActivatedRoute} from '@angular/router';
+import {CartItem} from '../../common/cart-item';
+import {CartService} from '../../services/cart.service';
 
 @Component({
   selector: 'app-post-list',
@@ -23,6 +25,7 @@ export class PostListComponent implements OnInit {
   previousKeyword: string = null;
 
   constructor(private postService: PostService,
+              private cartService: CartService,
               private route: ActivatedRoute) {
   }
 
@@ -107,6 +110,15 @@ export class PostListComponent implements OnInit {
     this.thePageSize = pageSize;
     this.thePageNumber = 1;
     this.listPosts();
+  }
+
+  addToCart(thePost: Post) {
+    console.log(`Adding to cart: ${thePost.title}, ${thePost.description}`);
+
+    const theCartItem = new CartItem(thePost);
+
+    this.cartService.addToCart(theCartItem);
+
   }
 }
 

@@ -13,9 +13,9 @@
               <h1>{{tempPost.title}}</h1>
             </a>
 
-            <div class="price"><a routerLink="/posts/{{tempPost.id}}">{{tempPost.description}}</a></div>
+            <div class="price">{{tempPost.description}}</div>
 
-            <a class="primary-btn" routerLink="/posts/{{tempPost.id}}">Read More</a>
+            <button (click)="addToCart(tempPost)" class="btn btn-primary btn-sm font-weight-bolder text-center">$1.99<br>Add To Cart</button>
           </div>
         </div>
 
