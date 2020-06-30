@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {User} from "../../common/user";
-import {PostService} from "../../services/post.service";
+import {User} from '../../common/user';
+import {PostService} from '../../services/post.service';
 
 @Component({
   selector: 'app-post-user-menu',

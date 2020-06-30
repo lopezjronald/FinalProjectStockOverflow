@@ -21,6 +21,7 @@ import {WebinarRatingService} from './services/webinar-rating.service';
 import {CommentRatingService} from './services/comment-rating.service';
 import {CommentRatingListComponent} from './components/comment-rating-list/comment-rating-list.component';
 import {WebinarRatingListComponent} from './components/webinar-rating-list/webinar-rating-list.component';
+
 import {RouterModule, Routes} from '@angular/router';
 import {PostUserMenuComponent} from './components/post-user-menu/post-user-menu.component';
 import {SearchComponent} from './components/search/search.component';
@@ -29,7 +30,6 @@ import {PostDetailsComponent} from './components/post-details/post-details.compo
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 const routes: Routes = [
-  {path: 'resource/', component: ResourceListComponent},
   {path: 'posts/:id', component: PostDetailsComponent},
   {path: 'search/:keyword', component: PostListComponent},
   {path: 'user/:id', component: PostListComponent},

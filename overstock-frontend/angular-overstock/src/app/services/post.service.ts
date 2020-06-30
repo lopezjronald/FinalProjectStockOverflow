@@ -16,13 +16,21 @@ export class PostService {
   constructor(private httpClient: HttpClient) {
   }
 
+  getPost(thePostId: number): Observable<Post> {
+
+    // need to build URL based on post id
+    const postUrl = `${this.baseUrl}/${thePostId}`;
+
+    return this.httpClient.get<Post>(postUrl);
+  }
+
   getPostListPaginate(thePage: number,
                       thePageSize: number,
                       theUserId: number): Observable<GetResponsePosts> {
 
     // need to build URL based on User Id, page and size
     const searchUrl = `${this.baseUrl}/search/findByUserId?id=${theUserId}`
-                    + `&page=${thePage}&size=${thePageSize}`;
+      + `&page=${thePage}&size=${thePageSize}`;
 
     return this.httpClient.get<GetResponsePosts>(searchUrl);
   }
@@ -35,17 +43,22 @@ export class PostService {
     return this.getPosts(searchUrl);
   }
 
-  getUsers(): Observable<User[]> {
-    return this.httpClient.get<GetResponseUsers>(this.userUrl).pipe(
-      map(response => response._embedded.users)
-    );
-  }
-
   searchPosts(theKeyword: string): Observable<Post[]> {
     // need to build URL based on keyword
     const searchUrl = `${this.baseUrl}/search/findByTitleContaining?title=${theKeyword}`;
 
     return this.getPosts(searchUrl);
+  }
+
+  searchPostsPaginate(thePage: number,
+                      thePageSize: number,
+                      theKeyword: string): Observable<GetResponsePosts> {
+
+    // need to build URL based on keyword
+    const searchUrl = `${this.baseUrl}/search/findByTitleContaining?title=${theKeyword}`
+      + `&page=${thePage}&size=${thePageSize}`;
+
+    return this.httpClient.get<GetResponsePosts>(searchUrl);
   }
 
   private getPosts(searchUrl: string): Observable<Post[]> {
@@ -54,30 +67,29 @@ export class PostService {
     );
   }
 
-  getPost(thePostId: number): Observable<Post> {
-
-    // need to build URL based on post id
-    const postUrl = `${this.baseUrl}/${thePostId}`;
-
-    return this.httpClient.get<Post>(postUrl);
+  getUsers(): Observable<User[]> {
+    return this.httpClient.get<GetResponseUsers>(this.userUrl).pipe(
+      map(response => response._embedded.users)
+    );
   }
+
 
 }
 
 interface GetResponsePosts {
   _embedded: {
     posts: Post[];
-  };
+  },
   page: {
     size: number,
     totalElements: number,
     totalPages: number,
     number: number
-  };
+  }
 }
 
 interface GetResponseUsers {
   _embedded: {
     users: User[];
-  };
+  }
 }

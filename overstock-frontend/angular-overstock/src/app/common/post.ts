@@ -4,5 +4,4 @@ export class Post {
   description: string;
   createdAt: Date;
   enabled: boolean;
-
 }

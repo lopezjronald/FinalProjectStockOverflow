@@ -9,15 +9,12 @@
             <a routerLink="/posts/{{tempPost.id}}">
               <img class="img-responsive" src="assets/images/products/placeholder.png">
             </a>
-            <br>
             <a routerLink="/posts/{{tempPost.id}}">
               <h1>{{tempPost.title}}</h1>
             </a>
-            <br>
-            <a routerLink="/posts/{{tempPost.id}}">
-              <div class="price">{{tempPost.description}}</div>
-            </a>
-            <br>
+
+            <div class="price"><a routerLink="/posts/{{tempPost.id}}">{{tempPost.description}}</a></div>
+
             <a class="primary-btn" routerLink="/posts/{{tempPost.id}}">Read More</a>
           </div>
         </div>
@@ -29,32 +26,46 @@
 
       </div>
 
-      <!-- begin footer -->
 
+      <!-- begin footer -->
       <div class="footer-pagination">
         <div class="row">
+          <div class="col-md-6"></div>
+
           <div class="col-md-6">
-            <div class="col-md-6">
-              <div class="row">
-                <div class="col-md-9" style="padding-left: 30%">
+            <div class="row">
+              <div class="col-md-9" style="padding-left: 30%">
 
-                  <ngb-pagination [(page)]="thePageNumber"
-                                  [pageSize]="thePageSize"
-                                  [collectionSize]="theTotalElements"
-                                  (pageChange)="listPosts()">
-                  </ngb-pagination>
+                <!-- More Documentation at ng-bootstrap.github.io -->
+                <ngb-pagination [(page)]='thePageNumber'
+                                [pageSize]='thePageSize'
+                                [collectionSize]='theTotalElements'
+                                [maxSize]='5'
+                                [boundaryLinks]='true'
+                                (pageChange)="listPosts()">
 
-                </div>
+                </ngb-pagination>
+
               </div>
+
+              <div class="col-md-3 mt-2" style="text-align: right;">
+                <span class="mr-2">Page Size</span>
+                  <select (change)='updatePageSize($event.target.value)'>
+                    <option>2</option>
+                    <option selected="true">5</option>
+                    <option>10</option>
+                    <option>20</option>
+                    <option>50</option>
+                  </select>
+              </div>
+
             </div>
           </div>
 
         </div>
       </div>
 
-      <a routerLink="resources/">Resources</a>
-
-      <!-- end footer-->
+    <!-- end footer-->
 
     </div>
   </div>
