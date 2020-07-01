@@ -26,11 +26,12 @@ import {RouterModule, Routes} from '@angular/router';
 import {PostUserMenuComponent} from './components/post-user-menu/post-user-menu.component';
 import {SearchComponent} from './components/search/search.component';
 import {PostDetailsComponent} from './components/post-details/post-details.component';
-
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {StockOverflowFormService} from './services/stock-overflow-form.service';
 import {CartStatusComponent} from './components/cart-status/cart-status.component';
-import { CartDetailsComponent } from './components/cart-details/cart-details.component';
-import { CheckoutComponent } from './components/checkout/checkout.component';
+
+import {CartDetailsComponent} from './components/cart-details/cart-details.component';
+import {CheckoutComponent} from './components/checkout/checkout.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {ReactiveFormsModule} from '@angular/forms';
 
 const routes: Routes = [
@@ -80,7 +81,8 @@ const routes: Routes = [
     UserService,
     WebinarService,
     ResourceService,
-    StockService
+    StockService,
+    StockOverflowFormService
   ],
   bootstrap: [AppComponent]
 })

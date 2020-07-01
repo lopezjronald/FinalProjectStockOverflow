@@ -154,7 +154,7 @@
         </div>
 
         <!-- Credit Card Form -->
-        <div class="form-area" formControlName="creditCard">
+        <div class="form-area" formGroupName="creditCard">
 
           <h3>Credit Card Information</h3>
 
@@ -203,7 +203,8 @@
             <div class="col-md-9">
               <div class="input-space">
                 <select formControlName="expirationMonth">
-                  <option>TO DO</option>
+                  <option *ngFor="let month of creditCardMonths">
+                  {{month}}
                 </select>
               </div>
             </div>
@@ -213,8 +214,10 @@
             <div class="col-md-2"><label>Year</label></div>
             <div class="col-md-9">
               <div class="input-space">
-                <select formControlName="expirationYear">
-                  <option>TO DO</option>
+                <select formControlName="expirationYear" (change)="handleMonthsAndYears()">
+                  <option *ngFor="let year of creditCardYears">
+                    {{year}}
+                  </option>
                 </select>
               </div>
             </div>
