@@ -2,7 +2,7 @@
   <div class="section-content section-content-p30">
     <div class="container-fluid">
 
-      <form [formGroup]="checkoutFormGroup" (ngSubmit)="onSubmit()">
+      <form (ngSubmit)="onSubmit()" [formGroup]="checkoutFormGroup">
 
         <div class="form-area" formGroupName="customer">
           <h3>Customer</h3>
@@ -92,7 +92,7 @@
         <!-- Add check box to copy shipping address to billing address form -->
         <div class="input-space">
           <label class="au-checkbox">
-            <input type="checkbox" (change)="copyShippingAddressToBillingAddress($event)">
+            <input (change)="copyShippingAddressToBillingAddress($event)" type="checkbox">
             <span class="au-checkmark"></span>Billing Address same as Shipping Address
           </label>
         </div>
@@ -153,9 +153,89 @@
 
         </div>
 
-          <div class="text-center">
-            <button class="btn btn-info" type="submit">Purchase</button>
+        <!-- Credit Card Form -->
+        <div class="form-area" formControlName="creditCard">
+
+          <h3>Credit Card Information</h3>
+
+          <div class="row">
+            <div class="col-md-2"><label>Card Type</label></div>
+            <div class="col-md-9">
+              <div class="input-space">
+                <select formControlName="cardType">
+                  <option>Visa</option>
+                  <option>Mastercard</option>
+                  <option>PayPal Credit</option>
+                </select>
+              </div>
+            </div>
           </div>
+
+          <div class="row">
+            <div class="col-md-2"><label>Name on Card</label></div>
+            <div class="col-md-9">
+              <div class="input-space">
+                <input formControlName="nameOnCard" type="text">
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-2"><label>Card Number</label></div>
+            <div class="col-md-9">
+              <div class="input-space">
+                <input formControlName="cardNumber" type="text">
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-2"><label>Security Code</label></div>
+            <div class="col-md-9">
+              <div class="input-space">
+                <input formControlName="securityCode" type="text">
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-2"><label>Month</label></div>
+            <div class="col-md-9">
+              <div class="input-space">
+                <select formControlName="expirationMonth">
+                  <option>TO DO</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-2"><label>Year</label></div>
+            <div class="col-md-9">
+              <div class="input-space">
+                <select formControlName="expirationYear">
+                  <option>TO DO</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Order Details -->
+        <div class="form-area">
+          <h3>Review Your Order</h3>
+
+          <p>Total Quantity: {{ totalQuantity}}</p>
+          <p>Shipping: FREE</p>
+          <p>Total Price: {{totalPrice | currency: 'USD'}}</p>
+        </div>
+
+
+        <!-- submit button -->
+        <div class="text-center">
+          <button class="btn btn-info" type="submit">Purchase</button>
+        </div>
       </form>
     </div>
   </div>
