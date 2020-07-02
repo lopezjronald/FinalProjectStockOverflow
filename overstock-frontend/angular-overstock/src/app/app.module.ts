@@ -33,6 +33,7 @@ import {CartDetailsComponent} from './components/cart-details/cart-details.compo
 import {CheckoutComponent} from './components/checkout/checkout.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {ReactiveFormsModule} from '@angular/forms';
+import { WelcomeComponent } from './components/welcome/welcome.component';
 
 const routes: Routes = [
   {path: 'checkout', component: CheckoutComponent},
@@ -63,7 +64,8 @@ const routes: Routes = [
     PostDetailsComponent,
     CartStatusComponent,
     CartDetailsComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    WelcomeComponent
   ],
   imports: [
     ReactiveFormsModule,

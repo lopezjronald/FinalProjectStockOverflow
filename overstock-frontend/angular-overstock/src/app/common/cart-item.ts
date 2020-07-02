@@ -17,7 +17,6 @@ export class CartItem {
     this.description = post.description;
     this.createdAt = post.createdAt;
     this.enabled = post.enabled;
-
     this.unitPrice = 1.99;
     this.quantity = 1;
   }

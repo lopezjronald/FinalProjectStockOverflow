@@ -1,11 +1,9 @@
 package com.skilldistillery.stockoverflow.config;
 
-import com.skilldistillery.stockoverflow.entity.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurer;
-import org.springframework.http.HttpMethod;
 
 import javax.persistence.EntityManager;
 import javax.persistence.metamodel.EntityType;
@@ -26,56 +24,56 @@ public class MyDataRestConfig implements RepositoryRestConfigurer {
 
     @Override
     public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config) {
-        HttpMethod[] theUnsupportedActions = {HttpMethod.PUT, HttpMethod.POST, HttpMethod.DELETE};
-
-        //disable HTTP methods
-        config.getExposureConfiguration()
-                .forDomainType(Post.class)
-                .withItemExposure((metdata, httpMethods) -> httpMethods.disable(theUnsupportedActions))
-                .withCollectionExposure((metdata, httpMethods) -> httpMethods.disable(theUnsupportedActions));
-
-
-        config.getExposureConfiguration()
-                .forDomainType(Comment.class)
-                .withItemExposure((metdata, httpMethods) -> httpMethods.disable(theUnsupportedActions))
-                .withCollectionExposure((metdata, httpMethods) -> httpMethods.disable(theUnsupportedActions));
-
-        config.getExposureConfiguration()
-                .forDomainType(CommentRating.class)
-                .withItemExposure((metdata, httpMethods) -> httpMethods.disable(theUnsupportedActions))
-                .withCollectionExposure((metdata, httpMethods) -> httpMethods.disable(theUnsupportedActions));
-
-        config.getExposureConfiguration()
-                .forDomainType(Resource.class)
-                .withItemExposure((metdata, httpMethods) -> httpMethods.disable(theUnsupportedActions))
-                .withCollectionExposure((metdata, httpMethods) -> httpMethods.disable(theUnsupportedActions));
-
-        config.getExposureConfiguration()
-                .forDomainType(Stock.class)
-                .withItemExposure((metdata, httpMethods) -> httpMethods.disable(theUnsupportedActions))
-                .withCollectionExposure((metdata, httpMethods) -> httpMethods.disable(theUnsupportedActions));
-
-        config.getExposureConfiguration()
-                .forDomainType(User.class)
-                .withItemExposure((metdata, httpMethods) -> httpMethods.disable(theUnsupportedActions))
-                .withCollectionExposure((metdata, httpMethods) -> httpMethods.disable(theUnsupportedActions));
-
-        config.getExposureConfiguration()
-                .forDomainType(UserStockJournal.class)
-                .withItemExposure((metdata, httpMethods) -> httpMethods.disable(theUnsupportedActions))
-                .withCollectionExposure((metdata, httpMethods) -> httpMethods.disable(theUnsupportedActions));
-
-        config.getExposureConfiguration()
-                .forDomainType(Webinar.class)
-                .withItemExposure((metdata, httpMethods) -> httpMethods.disable(theUnsupportedActions))
-                .withCollectionExposure((metdata, httpMethods) -> httpMethods.disable(theUnsupportedActions));
-
-        config.getExposureConfiguration()
-                .forDomainType(WebinarRating.class)
-                .withItemExposure((metdata, httpMethods) -> httpMethods.disable(theUnsupportedActions))
-                .withCollectionExposure((metdata, httpMethods) -> httpMethods.disable(theUnsupportedActions));
-
-        // call an internal helper to expose 'ids'
+//        HttpMethod[] theUnsupportedActions = {HttpMethod.PUT, HttpMethod.POST, HttpMethod.DELETE};
+//
+//        //disable HTTP methods
+//        config.getExposureConfiguration()
+//                .forDomainType(Post.class)
+//                .withItemExposure((metdata, httpMethods) -> httpMethods.disable(theUnsupportedActions))
+//                .withCollectionExposure((metdata, httpMethods) -> httpMethods.disable(theUnsupportedActions));
+//
+//
+//        config.getExposureConfiguration()
+//                .forDomainType(Comment.class)
+//                .withItemExposure((metdata, httpMethods) -> httpMethods.disable(theUnsupportedActions))
+//                .withCollectionExposure((metdata, httpMethods) -> httpMethods.disable(theUnsupportedActions));
+//
+//        config.getExposureConfiguration()
+//                .forDomainType(CommentRating.class)
+//                .withItemExposure((metdata, httpMethods) -> httpMethods.disable(theUnsupportedActions))
+//                .withCollectionExposure((metdata, httpMethods) -> httpMethods.disable(theUnsupportedActions));
+//
+//        config.getExposureConfiguration()
+//                .forDomainType(Resource.class)
+//                .withItemExposure((metdata, httpMethods) -> httpMethods.disable(theUnsupportedActions))
+//                .withCollectionExposure((metdata, httpMethods) -> httpMethods.disable(theUnsupportedActions));
+//
+//        config.getExposureConfiguration()
+//                .forDomainType(Stock.class)
+//                .withItemExposure((metdata, httpMethods) -> httpMethods.disable(theUnsupportedActions))
+//                .withCollectionExposure((metdata, httpMethods) -> httpMethods.disable(theUnsupportedActions));
+//
+//        config.getExposureConfiguration()
+//                .forDomainType(User.class)
+//                .withItemExposure((metdata, httpMethods) -> httpMethods.disable(theUnsupportedActions))
+//                .withCollectionExposure((metdata, httpMethods) -> httpMethods.disable(theUnsupportedActions));
+//
+//        config.getExposureConfiguration()
+//                .forDomainType(UserStockJournal.class)
+//                .withItemExposure((metdata, httpMethods) -> httpMethods.disable(theUnsupportedActions))
+//                .withCollectionExposure((metdata, httpMethods) -> httpMethods.disable(theUnsupportedActions));
+//
+//        config.getExposureConfiguration()
+//                .forDomainType(Webinar.class)
+//                .withItemExposure((metdata, httpMethods) -> httpMethods.disable(theUnsupportedActions))
+//                .withCollectionExposure((metdata, httpMethods) -> httpMethods.disable(theUnsupportedActions));
+//
+//        config.getExposureConfiguration()
+//                .forDomainType(WebinarRating.class)
+//                .withItemExposure((metdata, httpMethods) -> httpMethods.disable(theUnsupportedActions))
+//                .withCollectionExposure((metdata, httpMethods) -> httpMethods.disable(theUnsupportedActions));
+//
+//        // call an internal helper to expose 'ids'
         exposeIds(config);
     }
 

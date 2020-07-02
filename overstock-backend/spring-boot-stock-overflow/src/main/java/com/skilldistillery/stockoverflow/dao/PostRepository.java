@@ -17,6 +17,6 @@ public interface PostRepository extends JpaRepository<Post, Integer> {
 
     Page<Post> findByDescriptionContaining(@RequestParam("description") String description, Pageable pageable);
 
-    Page<Post> deletePostById(@RequestParam("id") Integer id, Pageable pageable);
+    Page<Post> removeById(@RequestParam("id") Integer id, Pageable pageable);
 
 }
