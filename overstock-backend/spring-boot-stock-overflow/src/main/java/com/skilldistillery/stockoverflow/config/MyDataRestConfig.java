@@ -75,10 +75,6 @@ public class MyDataRestConfig implements RepositoryRestConfigurer {
                 .withItemExposure((metdata, httpMethods) -> httpMethods.disable(theUnsupportedActions))
                 .withCollectionExposure((metdata, httpMethods) -> httpMethods.disable(theUnsupportedActions));
 
-
-
-
-
         // call an internal helper to expose 'ids'
         exposeIds(config);
     }
